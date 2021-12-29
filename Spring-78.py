@@ -379,7 +379,7 @@ class compression:
                                            
                                             sda17=sda17+szx4+sda23+szx14+Spin_Save
                                             sda18=sda17
-                                            print(len(sda17))
+                                            #print(len(sda17))
                                             
                                             bits="0"
                                             Spin=0
