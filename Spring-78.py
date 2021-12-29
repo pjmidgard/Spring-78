@@ -419,7 +419,7 @@ class compression:
                                             lenf=len(sda17)
                                             
                                             sda26=bin(Circle_times2)[2:]
-                                            lenf=len(sda26)
+                                            lenfTT=len(sda26)
                                             
                                                     
                                             
@@ -437,7 +437,7 @@ class compression:
                                     if   lenfS<=80 or ccc==2:
 
 
-                                            sda29=bin(sda26)[2:]
+                                            sda29=bin(lenfTT)[2:]
                                             lenf=len(sda29)
 
                                             szx7=""
