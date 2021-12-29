@@ -132,6 +132,7 @@ class compression:
                         sda25=""
                         sda26=""
                         sda27=""
+                        sda18=""
                         bits="0"
                         Spin=0
                         SpinS=0
@@ -277,6 +278,8 @@ class compression:
                                     sda12=""
                                     sda13=""
                                     sda17=""
+                                    sda17=""
+                                    
 
                                     ei=0
  
@@ -285,10 +288,6 @@ class compression:
 
                                     ei=0
 
-                                    
-                                    
-                                    
-                                    	
                                    
                                     ei=0
                                     T14=0
@@ -302,7 +301,7 @@ class compression:
                                     ccc=1
                                     bit=""
                                     
-                                    e=(2**32)-1
+                                    e=(2**9)-1
                                     g=0
                                     f=0
                                     T6=0
@@ -317,23 +316,16 @@ class compression:
                                                         
                                                 
                                         else:
-                                                e=e+1
+                                                e=e+255
+                                                T7=T7-255
                                                 
                                                 g=g+1
                         
 
-                                        if g>(2**22)-1 or e<=1:
+                                        if g>(2**7)-1 or e<=1:
                                                 
                                                 f=1
-                                         
-                                  
-                                    if g>(2**22)-1 or e<=1:
-                                            T7=T7-2
-                                            g=0
-                                            bit="1"
-                                            bits="1"
-            
-		
+                             
                                  
                                     if ccc==1:
                                     		nameas=name+".bin" 
@@ -346,7 +338,7 @@ class compression:
                                     if ccc==1:
                                             
                                             sda23=bin(g)[2:]
-                                            hr=22
+                                            hr=7
                                             
                                         	
                                             lenf=len(sda23)
@@ -363,7 +355,7 @@ class compression:
                                     if ccc==1 or ccc==2:
                                             
                                             Spin_Save=bin(Spin)[2:]
-                                            hr=8
+                                            hr=4
                                             
                                         	
                                             lenf=len(Spin_Save)
@@ -380,7 +372,7 @@ class compression:
                                     if ccc==1 and bit=="0":
                                            
                                             sda17=sda17+szx4+sda23+szx14+Spin_Save
-                                            sda18=sda17
+                                            sda18=sda3
                                             #print(len(sda17))
                                             
                                             bits="0"
@@ -391,6 +383,7 @@ class compression:
                                     	bits="1"
                                     	Spin=Spin+1
                                     	Circle_times2=Circle_times2-1
+                                    	sda18=sda3
                                           
                                             
                                      
@@ -399,7 +392,7 @@ class compression:
                                     #print(len(sda17))
                                     #print(bits)
                                     
-                                    if Spin==255:
+                                    if Spin==15:
                                     	ccc=2
                                     
                                     lenfS=len(sda17)
@@ -409,8 +402,9 @@ class compression:
                                     
                                     if ccc==2:
                                             sda17=sda18
+                                            #print(T7)
                                             
-                                            Circle_times2=Circle_times2-255
+                                            
                                  
                                     sda2=sda17
 
@@ -419,6 +413,7 @@ class compression:
 
                                     		
                                     if   lenfS<=80 or ccc==2:
+
 
                                             lenf=len(sda17)
                                             
@@ -540,25 +535,19 @@ class compression:
                                                 lenf6=len(sda3)
                                                 
                                         
-                                        sda4=sda3[lenf6-30:lenf6-8]
-                                        sda5=sda3[lenf6-8:lenf6]
-                                        sda3=sda3[0:lenf6-23]
+                                        sda4=sda3[lenf6-11:lenf6-4]
+                                        sda5=sda3[lenf6-4:lenf6]
+                                        sda3=sda3[0:lenf6-11]
                                 
-                                        if sda5!="00000000":
-                                                T7 = int(sda3, 2)
-                                                T8 = int(sda4, 2)
-                                                T9 = int(sda5, 2)
-                                                e=(2**32)-1
-                                                j=e+T8
-                                                T7=T7*j
-                                                T7=T7+(2*T9)
-                                        if sda5=="00000000":
-                                                T7 = int(sda3, 2)
-                                                T8 = int(sda4, 2)
-                                                e=(2**32)-1
-                                                j=e+T8
-                                                T7=T7*j
-                               
+                                        
+                                        T7 = int(sda3, 2)
+                                        T8 = int(sda4, 2)
+                                        T9 = int(sda5, 2)
+                                        e=(2**9)-1
+                                        j=e+(T8*255)
+                                        T7=T7*j
+                                        T7=T7+(T8*255)
+                                       
                                     sda6=sda4
                                     sda4=""
                                       
