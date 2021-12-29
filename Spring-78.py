@@ -133,6 +133,7 @@ class compression:
                         sda26=""
                         sda27=""
                         sda18=""
+                        sda29=""
                         bits="0"
                         Spin=0
                         SpinS=0
@@ -420,18 +421,34 @@ class compression:
                                             sda26=bin(Circle_times2)[2:]
                                             lenf=len(sda26)
                                             
+                                                    
+                                            
                                             szx6=""
-                                            xc=48-lenf%48
+                                            xc=8-lenf%8
                                             z=0
                                             if xc!=0:
-                                                if xc!=48:
+                                                if xc!=8:
                                                         while z<xc:
                                                          	szx6="0"+szx6
                                                          	z=z+1
                                             
                                     
                                                 
-                                    		
+                                    if   lenfS<=80 or ccc==2:
+
+
+                                            sda29=bin(sda26)[2:]
+                                            lenf=len(sda29)
+
+                                            szx7=""
+                                            xc=48-lenf%48
+                                            z=0
+                                            if xc!=0:
+                                                if xc!=48:
+                                                        while z<xc:
+                                                         	szx7="0"+szx7
+                                                         	z=z+1
+                                            		
 
                                     if   lenfS<=80 or ccc==2:
 
@@ -449,7 +466,7 @@ class compression:
 
                                     if   lenfS<=80 or ccc==2:
                                             
-                                            sda17=szx6+sda26+szx+sda17
+                                            sda17=szx7+sda29+szx6+sda26+szx+sda17
 
 
 
@@ -508,6 +525,7 @@ class compression:
                                     sda4=""
                                     sda5=""
                                     sda6=""
+                                    sda7=""
 
                                     ei=0
  
@@ -530,8 +548,10 @@ class compression:
                                     if C==1:
                                         if   Circle_times2==0:
                                                 sda6=sda3[0:48]
-                                                T = int(sda6, 2)
-                                                sda3=sda3[48:]
+                                                TT = int(sda6, 2)
+                                                sda7=sda3[TT+0:TT+48]
+                                                T = int(sda7, 2)
+                                                sda3=sda3[TT+48:]
                                                 lenf6=len(sda3)
                                                 
                                         
