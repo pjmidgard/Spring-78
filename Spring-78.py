@@ -364,7 +364,7 @@ class compression:
                                             hr=8
                                             
                                         	
-                                            lenf=len(sda23)
+                                            lenf=len(Spin_Save)
                                             szx14=""
                                             xc=hr-lenf%hr
                                             z=0
@@ -379,6 +379,7 @@ class compression:
                                            
                                             sda17=sda17+szx4+sda23+szx14+Spin_Save
                                             sda18=sda17
+                                            print(len(sda17))
                                             
                                             bits="0"
                                             Spin=0
