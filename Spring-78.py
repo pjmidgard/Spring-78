@@ -378,6 +378,8 @@ class compression:
                                     if ccc==1 and bit=="0":
                                            
                                             sda17=sda17+szx4+sda23+szx14+Spin_Save
+                                            sda18=sda17
+                                            
                                             bits="0"
                                             Spin=0
                                             
@@ -402,9 +404,9 @@ class compression:
                                     Circle_times2=Circle_times2+1
                                     
                                     if ccc==2:
-                                            sda17=sda3
+                                            sda17=sda18
                                             
-                                            Circle_times2=Circle_times2-1
+                                            Circle_times2=Circle_times2-255
                                  
                                     sda2=sda17
 
