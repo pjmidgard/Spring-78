@@ -546,7 +546,7 @@ class compression:
                                         e=(2**9)-1
                                         j=e+(T8*255)
                                         T7=T7*j
-                                        T7=T7+((T8*255)*T9)
+                                        T7=T7+((255*127)*T9)+(T8*255)
                                        
                                     sda6=sda4
                                     sda4=""
