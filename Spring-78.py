@@ -134,6 +134,7 @@ class compression:
                         sda27=""
                         bits="0"
                         Spin=0
+                        SpinS=0
                         while END_working<10:
                        
                             Circle_times3=Circle_times3+1
@@ -293,8 +294,9 @@ class compression:
                                     T14=0
                                     T21=0
                                     
-                                    if   Circle_times2==0:
+                                    if   Circle_times2==0 and SpinS==0:
                                     	sda3="1"+sda3
+                                    	SpinS=1
                                     T7 = int(sda3, 2)
                                     nameas=name+".bin" 
                                     ccc=1
@@ -394,7 +396,8 @@ class compression:
                                      
                                             
                                     
-                                  
+                                    #print(len(sda17))
+                                    #print(bits)
                                     
                                     if Spin==255:
                                     	ccc=2
